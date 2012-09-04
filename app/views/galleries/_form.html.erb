@@ -1,0 +1,32 @@
+<%= form_for(@gallery) do |f| %>
+  <% if @gallery.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@gallery.errors.count, "error") %> prohibited this gallery from being saved:</h2>
+      
+      <ul>
+	<% @gallery.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+	<% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= f.label :label, "Miejsce w serwisie" %>
+    <%= f.select :label, options_for_select(GALLERY_LABELS, @gallery.label) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name, "Tytuł" %>
+    <%= f.text_field :name %>
+  </div>
+  
+  <%= f.fields_for :photos do |builder| %>
+    <%= render "photo_fields", :f => builder %>
+  <% end %>  
+  <p><%= link_to_add_fields "Dodaj zdjęcie", f, :photos %></p>
+  
+  <div class="actions">
+    <%= f.submit 'Zapisz' %>
+  </div><br>
+<% end %>

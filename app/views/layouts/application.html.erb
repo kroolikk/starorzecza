@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <%= csrf_meta_tags %>
+  
+  <%= stylesheet_link_tag "style.css" %>
+  <%= javascript_include_tag "jquery-1.7.2.min.js" %>
+</head>
+
+<body>
+  <p>Layout</p>
+  <div>
+    <%= yield %>
+  </div>
+</body>
+</html>

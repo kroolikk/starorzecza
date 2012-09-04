@@ -1,0 +1,40 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  hello: "Hello world"
+  agro: "Agrotourism B&B A-Prim"
+  home: "Homepage"
+  contact: "Contact"
+  archives: "Archives"
+  station: "Gas Station"
+  pension: "Accomodation"
+  stable: "Stables"
+  gallery: "Gallery"
+  view_gallery: "View this Gallery"
+  return_gallery: "« Return to the Gallery"
+  return_news: "« Return to the news"
+  welcome_to: "Welcome to"
+  offer: "Offer"
+  read_more: "Read More »"
+  reception: "Reception"
+  contact_text: "A-Prim inn is located in the Valley of the Carp and the Soła river. Charming area of the Grojec Village is rich in unusual species of plants and animals. Spacious beach on the river Soła, pedestrians paths, ponds or a historical palace are only a few parts of tourist attractions that the region of southern Poland can offer."
+  open: "Open"
+  from: "from"
+  to: "to"
+  
+  stab:
+    about: "About the stables"
+    news: "News"
+  
+  acco:
+    about: "About accomodation"
+    rooms: "Rooms"
+    attractions: "Attractions"
+    price: "Price"
+    pricelist: "Prices"
+    service: "Service"
+    reservations: "Reservations"
+    
+  stat:
+    about: "About the gas station"

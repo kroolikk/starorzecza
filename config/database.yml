@@ -1,0 +1,28 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: star-dev1_development
+  pool: 5
+  username: root
+  password: '123'
+  host: localhost
+
+
+test:
+  adapter: mysql2
+  encoding: utf8
+  database: star-dev1_test
+  pool: 5
+  username: root
+  password: '123'
+  host: localhost
+
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: star-dev1_production
+  pool: 5
+  username: postgres
+  password: '123'
+  host: localhost
