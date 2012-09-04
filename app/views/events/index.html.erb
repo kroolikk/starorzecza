@@ -1,0 +1,25 @@
+<div>
+  <h1>Wiadomości</h1>
+  <%= link_to "Dodaj", new_event_path %>
+  <br/>
+  <br/>
+  <br/>
+  
+  <table width="100%">
+    <tr>
+      <th width="20%">Data wydarzenia</th>
+      <th width="40%">Tytuł</th>
+      <th width="20%">Data publikacji</th>
+      <th width="20%">Akcje</th>
+    </tr>
+    
+    <% @events.each do |event| %>
+      <tr>
+	<td><%= event.event_date.strftime("%d-%m-%Y %H:%M:%S") %></td>
+	<td><%= event.title %></td>
+	<td><%= event.created_at.strftime("%d-%m-%Y %H:%M:%S") %></td>
+	<td><%= link_to 'Edytuj', edit_event_path(event) %> | <%= link_to 'Usuń', event, confirm: 'Are you sure?', method: :delete %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
