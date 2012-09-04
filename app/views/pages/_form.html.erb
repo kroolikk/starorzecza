@@ -10,11 +10,16 @@
       </ul>
     </div>
   <% end %>
+
+
+
+  <%= f.hidden_field :label, :value => @page.label %>
   
   <div class="field">
-    <%= f.label :label, "Miejsce w serwisie" %><br />
-    <%= f.select :label, options_for_select(PAGE_LABELS, @page.label) %>
+    <%= f.label :title, "Tytuł" %>
+    <%= f.text_field :title %>
   </div>
+  
   <div class="field">
     <%= f.label :content, "Treść" %><br />
     <%= f.tinymce :content %>

@@ -12,14 +12,11 @@
   <% end %>
   
   <div class="field">
-    <%= f.label :label, "Miejsce w serwisie" %>
-    <%= f.select :label, options_for_select(GALLERY_LABELS, @gallery.label) %>
-  </div>
-
-  <div class="field">
     <%= f.label :name, "Tytuł" %>
     <%= f.text_field :name %>
   </div>
+
+  <br/><br/><br/>
   
   <%= f.fields_for :photos do |builder| %>
     <%= render "photo_fields", :f => builder %>

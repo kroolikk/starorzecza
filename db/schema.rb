@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120726193725) do
+ActiveRecord::Schema.define(:version => 20120904183751) do
+
+  create_table "events", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "event_date"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "galleries", :force => true do |t|
     t.string   "name"
@@ -46,13 +54,16 @@ ActiveRecord::Schema.define(:version => 20120726193725) do
     t.text     "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "title"
   end
 
   create_table "photos", :force => true do |t|
     t.integer  "gallery_id"
     t.string   "photo"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "title"
+    t.text     "description"
   end
 
   create_table "price_translations", :force => true do |t|
@@ -74,6 +85,14 @@ ActiveRecord::Schema.define(:version => 20120726193725) do
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
     t.integer  "priority",    :default => 0
+  end
+
+  create_table "vids", :force => true do |t|
+    t.string   "title"
+    t.text     "fileurl"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
 end

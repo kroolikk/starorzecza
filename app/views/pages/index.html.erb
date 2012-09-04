@@ -1,24 +1,26 @@
-<h1>Strony informacyjne</h1>
-
-<table>
-  <tr>
-    <th>Nazwa strony</th>
-    <th>Początek treści</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @pages.each do |page| %>
-  <tr>
-    <td><%= pages_label(page.label) %></td>
-    <td><%= truncate( strip_tags(page.content), :length => 50) %></td>
-    <td><%= link_to 'Edytuj', edit_page_path(page) %></td>
-    <td><%= link_to 'Usuń', page, confirm: 'Napewno usunać?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'Nowa strona', new_page_path %>
+<div>
+  <h1>Strony</h1>
+  <%= link_to "Nowa strona", new_page_path %>
+  <br/>
+  <br/>
+  <br/>
+  
+  <table width="100%">
+    <tr>
+      <th width="60%">Tytuł</th>
+      <th width="20%">Data publikacji</th>
+      <th width="20%">Akcje</th>
+    </tr>
+    
+    <% @pages.each do |page| %>
+      <tr>
+	<td>
+	  <%= page.title %>
+	  <!-- label:<%= page.label %> -->
+	</td>
+	<td><%= page.created_at.strftime("%d-%m-%Y %H:%M:%S") %></td>
+	<td><%= link_to 'Edytuj', edit_page_path(page) %> | <%= link_to 'Usuń', page, confirm: 'Are you sure?', method: :delete %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

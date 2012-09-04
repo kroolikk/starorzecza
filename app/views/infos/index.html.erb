@@ -1,25 +1,20 @@
 <div>
-  <h1>Aktualności</h1>
-  <%= link_to "Dodaj wpis", new_info_path %>
+  <h1>Wiadomości</h1>
+  <%= link_to "Dodaj", new_info_path %>
   <br/>
   <br/>
   <br/>
   
   <table width="100%">
     <tr>
-      <th width="10%">Grafika</th>
-      <th width="60%">Tytuł i Treść</th>
-      <th width="15%">Dodany</th>
-      <th width="10%">Opcje</th>
+      <th width="60%">Tytuł</th>
+      <th width="20%">Data publikacji</th>
+      <th width="20%">Akcje</th>
     </tr>
     
     <% @infos.each do |info| %>
       <tr>
-	<td><%= image_tag( info.image.thumb.url ) if info.image.present? %></td>
-	<td>
-	  <%= info.title %><br>
-	  <%= truncate( strip_tags(info.content), :length => 30 )%>
-	</td>
+	<td><%= info.title %></td>
 	<td><%= info.created_at.strftime("%d-%m-%Y %H:%M:%S") %></td>
 	<td><%= link_to 'Edytuj', edit_info_path(info) %> | <%= link_to 'Usuń', info, confirm: 'Are you sure?', method: :delete %></td>
       </tr>

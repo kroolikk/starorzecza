@@ -15,16 +15,11 @@
     <%= f.label :title, "Tytuł" %>
     <%= f.text_field :title %>
   </div>
+
   <div class="field">
     <%= f.label :content, "Treść" %>
-    <%= f.tinymce :content %>
+    <%= f.text_area :content %>
   </div>
-  <div class="field">
-    <%= image_tag(@info.image.thumb.url) if @info.image.present? %><br />
-    <%= f.label :image, "Grafika" %><br />
-    <%= f.file_field :image %>
-  </div>
-
   
   <div class="actions">
     <%= f.submit "Zapisz" %>

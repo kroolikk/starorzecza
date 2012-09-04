@@ -11,8 +11,7 @@ class AdminController < ApplicationController
   end
 
   def enter
-    if params[:login] == "Admin" && params[:password] == "admin"
-      flash[:notice] = "Zalogowano jako: Admin"
+    if params[:login] == "user0" && params[:password] == "star"
       session[:admin_loggedin] = true
       session[:account_type] = "Admin"
       redirect_to admin_path
@@ -25,8 +24,7 @@ class AdminController < ApplicationController
   def logout
     session[:logout_requested] = true
     session[:admin_loggedin] = false
-    flash[:notice] = "Zostales wylogowany."
-    redirect_to admin_login_path   # (root_path)
+    redirect_to admin_login_path
   end
   
   

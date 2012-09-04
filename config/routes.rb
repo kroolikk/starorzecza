@@ -1,46 +1,13 @@
 MprojDev1::Application.routes.draw do
 
-  
-  match 'zmien-jezyk/:locale' => 'application#set_locale', :as => :set_language
 
   mount TinymceFm::Engine => "/tinymce_fm"
-    
-  get "stacja" => "front_station#index", :as => :station_index
-  get "stacja-oferta" => "front_station#offer", :as => :station_offer
-  get "stacja-galeria" => "front_station#gallery", :as => :station_gallery
-  get "stacja-galeria/:id" => "front_station#gallery_show", :as => :station_gallery_show
-  get "stacja-cennik" => "front_station#prices", :as => :station_prices
-
-  get "stajnia" => "front_stable#index", :as => :stable_index
-  get "stajnia-aktualnosci" => "front_stable#infos", :as => :stable_infos
-  get "stajnia-aktualnosci/:id" => "front_stable#infos_show", :as => :stable_infos_show
-  get "stajnia-oferta" => "front_stable#offer", :as => :stable_offer
-  get "stajnia-rezerwacje" => "front_stable#reservations", :as => :stable_reservations
-  get "stajnia-galeria" => "front_stable#gallery", :as => :stable_gallery
-  get "stajnia-galeria/:id" => "front_stable#gallery_show", :as => :stable_gallery_show
-  get "stajnia-cennik" => "front_stable#prices", :as => :stable_prices
-  get "stajnia-archiwum" => "front_stable#archives", :as => :stable_archives
-  get "stajnia-archiwum/:id" => "front_stable#archives_show", :as => :stable_archives_show
-
-  get "pensjonat" => "front_pension#index", :as => :pension_index
-  get "pensjonat-rezerwacje" => "front_pension#reservations", :as => :pension_reservations
-  get "pensjonat-pokoje" => "front_pension#rooms", :as => :pension_rooms
-  get "pensjonat-galeria" => "front_pension#gallery", :as => :pension_gallery
-  get "pensjonat-galeria/:id" => "front_pension#gallery_show", :as => :pension_gallery_show
-  get "pensjonat-cennik" => "front_pension#prices", :as => :pension_prices
-  get "pensjonat-atrakcje-turystyczne" => "front_pension#attractions", :as => :pension_attractions
-
-  get "kontakt" => "home#contact", :as => :contact
-  
 
   resources :infos
-  resources :prices  
+  resources :events
   resources :galleries
-
-
+  resources :vids
   resources :pages
-  match "strony-zwieksz-priorytet/:id" => "prices#prior_up", :as => :pages_prior_up
-  match "strony-zmniejsz-priorytet/:id" => "prices#prior_down", :as => :pages_prior_down
 
   match "admin" => "admin#index", :as => :admin
   match "admin/login" => "admin#login", :as => :admin_login

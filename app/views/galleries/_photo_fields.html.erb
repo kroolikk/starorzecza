@@ -1,9 +1,10 @@
 <div class="fields">
-  <%= f.label :photo, "Plik" %>:
-  <%= f.file_field :photo %>
-  <%= link_to_remove_fields "usuń", f %><br />
+  <%= f.label :photo, "Plik:" %> <%= f.file_field :photo %><br/>
+  <%= f.label :title, "Tytuł:" %> <%= f.text_field :title %><br/>
+  <%= f.label :description, "Opis:" %> <%= f.text_field :title %><br/>
   <% if f.object.photo.present? %>
     <br /><%= (image_tag f.object.photo.thumb.url) %><br />
   <% end %>
-  --------------------------------------<br/>
+  <%= link_to_remove_fields "usuń", f %><br />
+  <br/><br/><br/>
 </div>
