@@ -1,0 +1,23 @@
+<div>
+  <h1>Użytkownicy zapisani do newslettera</h1>
+  <%= link_to "Dodaj", new_newsletter_user_path %>
+  <br/>
+  <br/>
+  <br/>
+  
+  <table width="100%">
+    <tr>
+      <th width="60%">Adres e-mail</th>
+      <th width="20%">Data zapisu</th>
+      <th width="20%">Akcje</th>
+    </tr>
+    
+    <% @newsletter_users.each do |nu| %>
+      <tr>
+	<td><%= nu.email %></td>
+	<td><%= nu.created_at.strftime("%d-%m-%Y %H:%M:%S") %></td>
+	<td><%= link_to 'Edytuj', edit_newsletter_user_path(nu) %> | <%= link_to 'Usuń', nu, confirm: 'Are you sure?', method: :delete %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120904183751) do
+ActiveRecord::Schema.define(:version => 20120911201917) do
 
   create_table "events", :force => true do |t|
     t.string   "title"
@@ -38,16 +38,11 @@ ActiveRecord::Schema.define(:version => 20120904183751) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "page_translations", :force => true do |t|
-    t.integer  "page_id"
-    t.string   "locale"
-    t.text     "content"
+  create_table "newsletter_users", :force => true do |t|
+    t.string   "email"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  add_index "page_translations", ["locale"], :name => "index_page_translations_on_locale"
-  add_index "page_translations", ["page_id"], :name => "index_page_translations_on_page_id"
 
   create_table "pages", :force => true do |t|
     t.string   "label"
@@ -64,27 +59,6 @@ ActiveRecord::Schema.define(:version => 20120904183751) do
     t.datetime "updated_at",  :null => false
     t.string   "title"
     t.text     "description"
-  end
-
-  create_table "price_translations", :force => true do |t|
-    t.integer  "price_id"
-    t.string   "locale"
-    t.text     "description"
-    t.string   "value"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  add_index "price_translations", ["locale"], :name => "index_price_translations_on_locale"
-  add_index "price_translations", ["price_id"], :name => "index_price_translations_on_price_id"
-
-  create_table "prices", :force => true do |t|
-    t.string   "label"
-    t.text     "description"
-    t.string   "value"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
-    t.integer  "priority",    :default => 0
   end
 
   create_table "vids", :force => true do |t|

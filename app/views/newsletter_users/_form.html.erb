@@ -1,0 +1,22 @@
+<%= form_for(@newsletter_user, :html => {:multipart => true}) do |f| %>
+  <% if @newsletter_user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@newsletter_user.errors.count, "error") %> prohibited this newsletter_user from being saved:</h2>
+
+      <ul>
+      <% @newsletter_user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= f.label :email, "Adres e-mail" %>
+    <%= f.text_field :email %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit "Zapisz" %>
+  </div>
+<% end %>

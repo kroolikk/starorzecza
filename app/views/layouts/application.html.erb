@@ -8,7 +8,26 @@
 </head>
 
 <body>
+  <div>
+    <% if flash[:alert] %>
+      <p class="flash-error"><%= flash[:alert] %></p>
+    <% end %>
+    <% if flash[:notice] %>
+      <p class="flash-notice"><%= flash[:notice] %></p>
+    <% end %>
+  </div>
+  
   <p>Layout</p>
+  Nawigacja<br>
+  <%= link_to "SG", root_url %>
+  <% @pages.each do |p| %>
+    <%= link_to p.title, front_page_url(p.label) %>
+  <% end %>
+  <%= link_to "Video", front_videos_url %>
+  <%= link_to "Galeria", front_galleries_url %>
+  <%= link_to "Kontakt", contact_url %>
+
+  <br><br><br>
   <div>
     <%= yield %>
   </div>

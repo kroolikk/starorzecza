@@ -1,7 +1,7 @@
 <div class="fields">
   <%= f.label :photo, "Plik:" %> <%= f.file_field :photo %><br/>
   <%= f.label :title, "Tytuł:" %> <%= f.text_field :title %><br/>
-  <%= f.label :description, "Opis:" %> <%= f.text_field :title %><br/>
+  <%= f.label :description, "Opis:" %> <%= f.text_field :description %><br/>
   <% if f.object.photo.present? %>
     <br /><%= (image_tag f.object.photo.thumb.url) %><br />
   <% end %>

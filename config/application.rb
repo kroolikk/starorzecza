@@ -9,20 +9,7 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-AVAILABLE_LANGUAGES = [:pl, :en, :de, :ru]
-
-PAGE_LABELS = [["page_label1", "plab1"],
-               ["page_label2", "plab2"],
-               ["page_label3", "plab3"]]
-
-GALLERY_LABELS = [["label1", "lab1"],
-                  ["label2", "lab2"],
-                  ["label3", "lab3"]]
-
-PRICE_LABELS = [["label1", "lab1"],
-                ["label2", "lab2"],
-                ["label3", "lab3"]]
-
+AVAILABLE_LANGUAGES = [:en]
 
 
 module MprojDev1
@@ -50,8 +37,7 @@ module MprojDev1
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    config.i18n.default_locale = :pl
-    config.i18n.fallbacks = [:pl, :en, :de, :ru]
+    config.i18n.default_locale = :en
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"

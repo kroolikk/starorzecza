@@ -1,1 +1,40 @@
-Home#Index
+home#index<br>
+<br><br>
+Wiadomości:<br>===========================================<br>
+<% @infos.each do |info| %>
+  <%= info.title %><br>
+  <%= raw info.content %><br>
+  <%= info.created_at.strftime("%d-%m-%Y") %><br><br>
+<% end %>
+
+
+<br><br>
+Wydarzenia:<br>===========================================<br>
+<% @events.each do |event| %>
+  <%= event.event_date.strftime("%d-%m-%Y") %><br>
+  <%= event.title %><br>
+  <%= raw event.content %><br><br>
+<% end %>
+
+
+<br><br>
+Galerie:<br>===========================================<br>
+<% @galleries.each do |gallery| %>
+  <%= gallery.name %>-------------<br>
+  <% gallery.photos.each do |photo| %>
+    <%= image_tag photo.photo.thumb.url %><br>
+    <%= photo.title %><br>
+    <%= raw photo.description %><br><br>
+  <% end %>
+<% end %>
+
+
+<br><br>
+Newsletter:<br>===========================================<br>
+<div>
+  <%= form_tag subscribe_url do %>
+    Podaj email:
+    <%= text_field_tag :email %>
+    <%= submit_tag "Zapisz" %>
+  <% end %>
+</div>

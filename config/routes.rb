@@ -1,6 +1,14 @@
 MprojDev1::Application.routes.draw do
 
 
+  
+  match "video" => "front_videos#index", :as => :front_videos
+  match "galerie" => "front_galleries#index", :as => :front_galleries
+  match "kontakt" => "home#contact", :as => :contact
+  match "strona/:label" => "front_pages#show", :as => :front_page
+  match "zapisz-do-neewslettera" => "home#subscribe", :as => :subscribe
+
+
   mount TinymceFm::Engine => "/tinymce_fm"
 
   resources :infos
@@ -8,14 +16,12 @@ MprojDev1::Application.routes.draw do
   resources :galleries
   resources :vids
   resources :pages
+  resources :newsletter_users
 
   match "admin" => "admin#index", :as => :admin
   match "admin/login" => "admin#login", :as => :admin_login
   match "admin/enter" => "admin#enter", :as => :admin_enter
   match "admin/logout" => "admin#logout", :as => :admin_logout
-
-
-  get "home/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -12,8 +12,10 @@
   <% end %>
 
 
-
-  <%= f.hidden_field :label, :value => @page.label %>
+  <div class="field">
+    <%= f.label :title, "Url" %>
+    <%= "#{request.protocol}#{request.host_with_port}/" %><%= f.text_field :label %>
+  </div>  
   
   <div class="field">
     <%= f.label :title, "Tytuł" %>
