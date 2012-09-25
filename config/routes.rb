@@ -8,9 +8,6 @@ MprojDev1::Application.routes.draw do
   match "strona/:label" => "front_pages#show", :as => :front_page
   match "zapisz-do-neewslettera" => "home#subscribe", :as => :subscribe
 
-
-  mount TinymceFm::Engine => "/tinymce_fm"
-
   resources :infos
   resources :events
   resources :galleries

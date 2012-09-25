@@ -24,7 +24,7 @@
   
   <div class="field">
     <%= f.label :content, "Treść" %><br />
-    <%= f.tinymce :content %>
+    <%= f.text_area :content, :class => 'mceEditor' %>
   </div>
   <div class="actions">
     <%= f.submit "Zatwierdź" %>
