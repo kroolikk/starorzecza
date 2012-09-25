@@ -10,17 +10,14 @@ gem 'execjs'
 
 gem 'json'
 
-#gem 'mysql2'
-gem 'pg'
-
-# group :development, :test do
-#   gem 'mysql2'
-# end
-group :production do
-   gem 'thin'
+group :development, :test do
+  gem 'mysql2'
 end
 
-
+group :production do
+	gem 'thin'
+	gem 'pg'
+end
 
 gem "rmagick"
 gem 'carrierwave'
