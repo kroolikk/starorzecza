@@ -9,6 +9,9 @@ class HomeController < ApplicationController
   def contact
   end
 
+  def about
+  end
+
   def subscribe
     if params[:email].present?
       @newsletter_user = NewsletterUser.new(:email => params[:email])

@@ -1,9 +1,20 @@
 MprojDev1::Application.routes.draw do
 
 
+  match "wiadomosci" => "front_infos#index", :as => :front_infos
+  match "wiadomosc/:id" => "front_infos#show", :as => :front_info
   
+  match "wydarzenia" => "front_events#index", :as => :front_events
+  match "wydarzenie/:id" => "front_events#show", :as => :front_event
+  
+  match "o-projekcie" => "home#about", :as => :front_about
+
   match "video" => "front_videos#index", :as => :front_videos
+  match "video/:id" => "front_videos#show", :as => :front_video
+
   match "galerie" => "front_galleries#index", :as => :front_galleries
+  match "galeria/:id" => "front_galleries#show", :as => :front_gallery
+
   match "kontakt" => "home#contact", :as => :contact
   match "strona/:label" => "front_pages#show", :as => :front_page
   match "zapisz-do-neewslettera" => "home#subscribe", :as => :subscribe
