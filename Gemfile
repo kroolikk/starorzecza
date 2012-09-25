@@ -10,7 +10,7 @@ gem 'execjs'
 
 gem 'json'
 
-gem 'mysql2'
+#gem 'mysql2'
 gem 'pg'
 
 # group :development, :test do
