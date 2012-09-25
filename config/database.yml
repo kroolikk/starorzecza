@@ -21,8 +21,8 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: star-dev1_production
+  database: starorzecza-dev1_production
   pool: 5
   username: postgres
-  password: '123'
+  password: ananas
   host: localhost
