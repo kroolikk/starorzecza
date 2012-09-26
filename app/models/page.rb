@@ -5,4 +5,7 @@ class Page < ActiveRecord::Base
   validates :label, :uniqueness => { :message => '^Url musi być unikalny.' }
   validates :title, :presence => { :message => '^Tytuł musi być podany.' }
 
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
 end

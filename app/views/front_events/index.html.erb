@@ -1,0 +1,23 @@
+<h1 class="news">
+  <i></i>
+  Wydarzenia
+</h1>
+
+<% @events.each do |event| %>
+<div class="single-news">
+  <h3>
+    <%= link_to event.title, front_event_url(event) %>
+  </h3>
+  <div>
+    <%= raw event.content %>
+  </div>
+
+  <div class="data">
+    <span class="time">
+      <i></i>
+      <%= event.created_at.strftime("%d-%m-%Y %H:%M:%S") %>
+    </span>
+    <%= link_to "Czytaj więcej...", front_event_url(event) %>
+  </div>
+</div>
+<% end %>

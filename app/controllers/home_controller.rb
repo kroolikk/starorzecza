@@ -1,9 +1,9 @@
 # -*- encoding: utf-8 -*-
 class HomeController < ApplicationController
+  before_filter :init_right_panel
+
   def index
     @infos = Info.order("created_at DESC").limit(3)
-    @events = Event.order("created_at DESC").limit(4)
-    @galleries = Gallery.order("created_at DESC").limit(2)
   end
 
   def contact

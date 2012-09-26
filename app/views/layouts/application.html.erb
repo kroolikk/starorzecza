@@ -1,36 +1,3 @@
-<% if false %>
-<!DOCTYPE html>
-<head>
-  <meta charset="UTF-8" />
-  <%= csrf_meta_tags %>
-  
-  <%= stylesheet_link_tag "style.css" %>
-  <%= javascript_include_tag "jquery-1.7.2.min.js" %>
-</head>
-
-<body>
-  
-  
-  <p>Layout</p>
-  Nawigacja<br>
-  <%= link_to "SG", root_url %>
-  <% @pages.each do |p| %>
-  <%= link_to p.title, front_page_url(p.label) %>
-  <% end %>
-  <%= link_to "Video", front_videos_url %>
-  <%= link_to "Galeria", front_galleries_url %>
-  <%= link_to "Kontakt", contact_url %>
-
-  <br><br><br>
-  <div>
-    <%= yield %>
-  </div>
-</body>
-</html>
-<% end %>
-
-
-
 <!DOCTYPE html> 
 <html>
 <head> 
@@ -53,25 +20,25 @@
       <%= link_to( (image_tag "logo.png", :alt => "logo"), root_url ) %>
 
       <ul class="navigation">
-        <li class="frontpage selected">
+        <li class="<%= set_selected_class('home', 'index') %>">
           <%= link_to "Strona główna", root_url %>
         </li>
-        <li>
+        <li class="<%= set_selected_class('front_infos') %>">
           <%= link_to "Wiadomości", front_infos_url %>
         </li>
-        <li>
+        <li class="<%= set_selected_class('front_events') %>">
           <%= link_to "Wydarzenia", front_events_url %>
         </li>
-        <li>
+        <li class="<%= set_selected_class('home', 'about') %>">
           <%= link_to "O projekcie", front_about_url %>
         </li>        
-        <li>
+        <li class="<%= set_selected_class('front_galleries') %>">
           <%= link_to "Galeria", front_galleries_url %>
         </li>
-        <li>
+        <li class="<%= set_selected_class('front_videos') %>">
           <%= link_to "Video", front_videos_url %>
         </li>
-        <li>
+        <li class="<%= set_selected_class('home', 'contact') %>">
           <%= link_to "Kontakt", contact_url %>
         </li>
       </ul>
@@ -158,8 +125,8 @@
           <i></i>
           Wydarzenia
         </h2>
-        <% if @events.present? %>
-          <% @events.each do |event| %>
+        <% if @r_events.present? %>
+          <% @r_events.each do |event| %>
             <div class="single-event">
               <h3>
                 <%= link_to event.title, front_event_url(event) %>            
@@ -189,8 +156,8 @@
           Galeria
         </h2>
         <div class="gallery">
-          <% if @galleries.present? %>
-            <% @galleries[0..0].each do |gallery| %>
+          <% if @r_galleries.present? %>
+            <% @r_galleries[0..0].each do |gallery| %>
               Gleria: <%= gallery.name %><br/>
               <% gallery.photos.each do |photo| %>
                 <%= link_to( image_tag(photo.photo.thumb.url, :alt => photo.title, :title => photo.title), front_gallery_url(gallery) ) %>
@@ -235,3 +202,35 @@
   </script>
 </body>
 </html>
+
+
+
+<% if false %>
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <%= csrf_meta_tags %>
+  
+  <%= stylesheet_link_tag "style.css" %>
+  <%= javascript_include_tag "jquery-1.7.2.min.js" %>
+</head>
+
+<body>
+  
+  
+  <p>Layout</p>
+  Nawigacja<br>
+  <%= link_to "SG", root_url %>
+  <% @pages.each do |p| %>
+  <%= link_to p.title, front_page_url(p.label) %>
+  <% end %>
+  <%= link_to "Video", front_videos_url %>
+  <%= link_to "Galeria", front_galleries_url %>
+  <%= link_to "Kontakt", contact_url %>
+  <br><br><br>
+  <div>
+    <%= yield %>
+  </div>
+</body>
+</html>
+<% end %>

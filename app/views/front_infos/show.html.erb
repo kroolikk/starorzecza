@@ -1,0 +1,15 @@
+<div class="single-news">
+  <h3>
+    <%= @info.title %>
+  </h3>
+  <div>
+    <%= raw @info.content %>
+  </div>
+
+  <div class="data">
+    <span class="time">
+      <i></i>
+      <%= @info.created_at.strftime("%d-%m-%Y %H:%M:%S") %>
+    </span>
+  </div>
+</div>

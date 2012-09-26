@@ -1,0 +1,23 @@
+<h1 class="news">
+  <i></i>
+  Wiadomości
+</h1>
+
+<% @infos.each do |info| %>
+<div class="single-news">
+  <h3>
+    <%= link_to info.title, front_info_url(info) %>
+  </h3>
+  <div>
+    <%= raw info.content %>
+  </div>
+
+  <div class="data">
+    <span class="time">
+      <i></i>
+      <%= info.created_at.strftime("%d-%m-%Y %H:%M:%S") %>
+    </span>
+    <%= link_to "Czytaj więcej...", front_info_url(info) %>
+  </div>
+</div>
+<% end %>

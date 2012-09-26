@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120911201917) do
+ActiveRecord::Schema.define(:version => 20120926174751) do
 
   create_table "events", :force => true do |t|
     t.string   "title"
@@ -19,14 +19,20 @@ ActiveRecord::Schema.define(:version => 20120911201917) do
     t.datetime "event_date"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "slug"
   end
+
+  add_index "events", ["slug"], :name => "index_events_on_slug"
 
   create_table "galleries", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "label"
+    t.string   "slug"
   end
+
+  add_index "galleries", ["slug"], :name => "index_galleries_on_slug"
 
   create_table "infos", :force => true do |t|
     t.string   "title"
@@ -36,7 +42,10 @@ ActiveRecord::Schema.define(:version => 20120911201917) do
     t.boolean  "featured"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "slug"
   end
+
+  add_index "infos", ["slug"], :name => "index_infos_on_slug"
 
   create_table "newsletter_users", :force => true do |t|
     t.string   "email"
@@ -50,7 +59,10 @@ ActiveRecord::Schema.define(:version => 20120911201917) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "title"
+    t.string   "slug"
   end
+
+  add_index "pages", ["slug"], :name => "index_pages_on_slug"
 
   create_table "photos", :force => true do |t|
     t.integer  "gallery_id"
@@ -67,6 +79,9 @@ ActiveRecord::Schema.define(:version => 20120911201917) do
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "slug"
   end
+
+  add_index "vids", ["slug"], :name => "index_vids_on_slug"
 
 end

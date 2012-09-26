@@ -1,2 +1,7 @@
-<h1>FrontVideos#index</h1>
-<p>Find me in app/views/front_videos/index.html.erb</p>
+<% @videos.each do |video| %>
+  <%= raw video.fileurl %><br/>
+  <%= link_to front_video_url(video) do %>
+    <%= video.title %><br/>
+    <%= raw video.description %><br/>
+  <% end %>
+<% end %>

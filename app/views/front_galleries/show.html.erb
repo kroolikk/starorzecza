@@ -1,2 +1,6 @@
-<h1>FrontGalleries#show</h1>
-<p>Find me in app/views/front_galleries/show.html.erb</p>
+<%= @gallery.name %>-------------<br>
+<% @gallery.photos.each do |photo| %>
+  <%= image_tag photo.photo.thumb.url %><br>
+  <%= photo.title %><br>
+  <%= raw photo.description %><br><br>
+<% end %>

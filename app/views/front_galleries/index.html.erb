@@ -1,2 +1,11 @@
-<h1>FrontGalleries#index</h1>
-<p>Find me in app/views/front_galleries/index.html.erb</p>
+Galerie:<br>===========================================<br>
+<% @galleries.each do |gallery| %>
+  <%= link_to front_gallery_url(gallery) do %>
+    <%= gallery.name %>-------------<br>
+    <% gallery.photos.each do |photo| %>
+      <%= image_tag photo.photo.thumb.url %><br>
+      <%= photo.title %><br>
+      <%= raw photo.description %><br><br>
+    <% end %>
+  <% end %>
+<% end %>

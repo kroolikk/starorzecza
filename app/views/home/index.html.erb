@@ -1,3 +1,34 @@
+<h1 class="news">
+  <i></i>
+  Wiadomości
+</h1>
+
+<% @infos.each do |info| %>
+<div class="single-news">
+  <h3>
+    <%= link_to info.title, front_info_url(info) %>
+  </h3>
+  <div>
+    <%= raw info.content %>
+  </div>
+
+  <div class="data">
+    <span class="time">
+      <i></i>
+      <%= info.created_at.strftime("%d-%m-%Y %H:%M:%S") %>
+    </span>
+    <%= link_to "Czytaj więcej...", front_info_url(info) %>
+  </div>
+</div>
+<% end %>
+
+<div class="bottom-more">
+  <%= link_to "Więcej...", front_infos_url %>
+</div>
+
+
+
+
 <% if false %>
 home#index<br>
 <br><br>
@@ -38,133 +69,5 @@ Newsletter:<br>===========================================<br>
   <%= text_field_tag :email %>
   <%= submit_tag "Zapisz" %>
   <% end %>
-</div>
-<% end %>
-
-
-<% if true %>
-
-<h1 class="news">
-  <i></i>
-  Wiadomości
-</h1>
-
-<div class="single-news">
-  <h3>
-    <a href="#">
-      Tytuł wiadomości
-    </a>
-  </h3>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation <a href="#">ullamco laboris nisi</a> ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit.
-  </p>
-  <ul>
-    <li>
-      Lorem
-    </li>
-    <li>
-      Lorem
-    </li>
-    <li>
-      Lorem
-    </li>
-  </ul>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. 
-  </p>
-  <div class="data">
-    <span class="time">
-      <i></i>
-      12.09.2012
-    </span>
-    <a href="#">
-      Czytaj więcej...
-    </a>
-  </div>
-</div>
-<div class="single-news">
-  <h3>
-    <a href="#">
-      Tytuł wiadomości
-    </a>
-  </h3>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation <a href="#">ullamco laboris nisi</a> ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit.
-  </p>
-  <ul>
-    <li>
-      Lorem
-    </li>
-    <li>
-      Lorem
-    </li>
-    <li>
-      Lorem
-    </li>
-  </ul>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. 
-  </p>
-  <div class="data">
-    <span class="time">
-      <i></i>
-      12.09.2012
-    </span>
-    <a href="#">
-      Czytaj więcej...
-    </a>
-  </div>
-</div>
-<div class="single-news">
-  <h3>
-    <a href="#">
-      Tytuł wiadomości
-    </a>
-  </h3>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation <a href="#">ullamco laboris nisi</a> ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit.
-  </p>
-  <ul>
-    <li>
-      Lorem
-    </li>
-    <li>
-      Lorem
-    </li>
-    <li>
-      Lorem
-    </li>
-  </ul>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. 
-  </p>
-  <div class="data">
-    <span class="time">
-      <i></i>
-      12.09.2012
-    </span>
-    <a href="#">
-      Czytaj więcej...
-    </a>
-  </div>
-</div>
-
-
-<div class="bottom-more">
-  <a href="">
-    Więcej...
-  </a>
 </div>
 <% end %>

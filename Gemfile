@@ -54,3 +54,5 @@ gem 'jquery-rails'
 # gem 'ruby-debug'
 
 # gem "heroku"
+
+gem "friendly_id", "~> 4.0.1"
