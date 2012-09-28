@@ -6,11 +6,11 @@
 
   <%= csrf_meta_tags %>
   
-  <%= stylesheet_link_tag "style.css" %>
-  <%= javascript_include_tag "jquery-1.7.2.min.js", "jquery.backstretch.min.js" %>
+  <%= stylesheet_link_tag "style.css", "jquery.fancybox.css" %>
+  <%= javascript_include_tag "jquery-1.7.2.min.js", "jquery.backstretch.min.js", "jquery.fancybox.js", "jquery.roundabout.min.js" %>
 
   <title>
-    cw
+    Chrońmy Wiśliska
   </title> 
 </head>
 
@@ -20,15 +20,6 @@
       <%= link_to( (image_tag "logo.png", :alt => "logo"), root_url ) %>
 
       <ul class="navigation">
-        <li class="<%= set_selected_class('home', 'index') %>">
-          <%= link_to "Strona główna", root_url %>
-        </li>
-        <li class="<%= set_selected_class('front_infos') %>">
-          <%= link_to "Wiadomości", front_infos_url %>
-        </li>
-        <li class="<%= set_selected_class('front_events') %>">
-          <%= link_to "Wydarzenia", front_events_url %>
-        </li>
         <li class="<%= set_selected_class('home', 'about') %>">
           <%= link_to "O projekcie", front_about_url %>
         </li>        
@@ -53,6 +44,18 @@
       </div>
     </div>
 
+    
+    <ul class="roundabout">
+      <% Photo.order("RAND()").limit(3).each do |p| %>
+      <li>
+        <%= image_tag p.photo.url, :alt => p.description %>
+        <%= link_to(p.photo.url, :class => "fancybox") do %>            
+        <em><%= p.description %></em>
+        <% end %>               
+      </li>      
+      <% end %>
+    </ul>
+
 
     <div class="content">
       <div class="main">
@@ -74,28 +77,47 @@
           <p>
             Wpisz swój email aby dostawać nasz newsletter.
           </p>
+
           <!-- Begin MailChimp Signup Form -->
-          <div id="mc_embed_signup">
-            <%= form_tag subscribe_url do %>
+            <div id="mc_embed_signup">
+              <form action="http://wisliska.us5.list-manage1.com/subscribe/post?u=b22a6f459d19a30a1d4943a42&amp;id=9f8fc6d8ff" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                <div class="mc-field-group">
+                  <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="E-mail">
+                </div>
+                <div id="mce-responses" class="clear">
+                  <div class="response" id="mce-error-response" style="display:none"></div>
+                  <div class="response" id="mce-success-response" style="display:none"></div>
+                </div>  <div class="clear"><input type="submit" value="Zapisz się" name="subscribe" id="mc-embedded-subscribe" class="button">
+              </div>
+              </form>
+              </div>
+          <!--End mc_embed_signup-->
+
+
+          <% if false %>
+            <!-- Begin MailChimp Signup Form -->
+            <div id="mc_embed_signup">
+              <%= form_tag subscribe_url do %>
               <div class="mc-field-group">
                 <%= text_field_tag :email, '', :class => "required email", :placeholder => "E-mail" %>
               </div>
-
               <div id="mce-responses" class="clear">
                 <% if flash[:alert] %>
-                  <div class="response" id="mce-error-response"><%= flash[:alert] %></div>
+                <div class="response" id="mce-error-response"><%= flash[:alert] %></div>
                 <% end %>
                 <% if flash[:notice] %>
-                  <div class="response" id="mce-success-response"><%= flash[:notice] %></div>
+                <div class="response" id="mce-success-response"><%= flash[:notice] %></div>
                 <% end %>
               </div>
 
               <div class="clear">
                 <%= submit_tag "Zapisz się", :class => "button" %>
               </div>            
-            <% end %>
-          </div>
-          <!--End mc_embed_signup-->
+              <% end %>
+            </div>
+            <!--End mc_embed_signup-->
+          <% end %>
+
         </div>
 
         <!-- end Newsletter -->
@@ -109,9 +131,7 @@
         </h2>
         <div class="map">
           <p>
-            <a href="#">
-              <img src="#" alt="Mapa starorzeczy">
-            </a>
+            <%= link_to image_tag('../assets/map.jpg'), '#', :alt => "Mapa starorzeczy" %>            
           </p>
         </div>
 
@@ -160,7 +180,7 @@
             <% @r_galleries[0..0].each do |gallery| %>
               Gleria: <%= gallery.name %><br/>
               <% gallery.photos.each do |photo| %>
-                <%= link_to( image_tag(photo.photo.thumb.url, :alt => photo.title, :title => photo.title), front_gallery_url(gallery) ) %>
+                <%= link_to( image_tag(photo.photo.thumb.url, :alt => photo.title, :title => photo.title), photo.photo.url, :class => "fancybox", :title => "Autor zdjęcia: #{photo.description}"  ) %>
               <% end %>
             <% end %>
           <% end %>
@@ -187,18 +207,35 @@
   </div>
 
   <script type="text/javascript"> 
-  $.backstretch("<%= asset_path('bg.jpg') %>");
+    $.backstretch("<%= asset_path('bg.jpg') %>");
   </script>
   <script> 
-  
-  (function() { 
-
-    var search_label = $('.search label');
-
-    search_label.on('click', function() {
-      $('.search').toggleClass('open');
+    (function() { 
+      var search_label = $('.search label');
+      search_label.on('click', function() {
+        $('.search').toggleClass('open');
+      });
+    })();
+  </script>
+  <script>
+    $(document).ready(function() {
+      $('ul.roundabout').roundabout();
     });
-  })();
+    $(".fancybox").fancybox({
+      wrapCSS    : 'fancybox-custom',
+      closeClick : true,
+      openEffect : 'none',
+      helpers : {
+        title : {
+          type : 'inside'
+        },
+        overlay : {
+          css : {
+            'background' : 'rgba(238,238,238,0.85)'
+          }
+        }
+      }
+    });
   </script>
 </body>
 </html>

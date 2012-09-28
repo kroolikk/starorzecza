@@ -7,9 +7,11 @@ class HomeController < ApplicationController
   end
 
   def contact
+    @page = Page.find_by_label('kontakt')
   end
 
   def about
+    @page = Page.find_by_label('o-projekcie')
   end
 
   def subscribe

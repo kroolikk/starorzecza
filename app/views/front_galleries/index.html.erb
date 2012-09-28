@@ -1,11 +1,24 @@
-Galerie:<br>===========================================<br>
-<% @galleries.each do |gallery| %>
-  <%= link_to front_gallery_url(gallery) do %>
-    <%= gallery.name %>-------------<br>
-    <% gallery.photos.each do |photo| %>
-      <%= image_tag photo.photo.thumb.url %><br>
-      <%= photo.title %><br>
-      <%= raw photo.description %><br><br>
-    <% end %>
-  <% end %>
+<h1 class="gallery">
+  <i></i>
+  Galeria
+</h1>
+
+<p>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+</p>
+
+
+<% @galleries.each_with_index do |gallery, index| %>
+  <h2>
+    <%= gallery.name %>
+  </h2>
+
+  <div class="gallery">
+    <p>
+      <% gallery.photos.each do |photo| %>
+        <%= link_to( image_tag(photo.photo.small.url, :alt => photo.title, :title => photo.title), photo.photo.url, :class => 'fancybox', 'data-fancybox-group' => "gallery_#{index}", :title => "Autor zdjęcia: #{photo.description}" ) %>
+      <% end %>
+    </p>
+  </div>
 <% end %>
