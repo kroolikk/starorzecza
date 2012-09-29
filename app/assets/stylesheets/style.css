@@ -43,7 +43,7 @@ ul.navigation li {
 	font-size: 14px;
 	margin-right: 10px;
 	padding: 8px 2px 5px 10px;
-	background: url(../assets/sep.png) no-repeat 0 0;
+	background: url(/assets/sep.png) no-repeat 0 0;
 }
 ul.navigation li:first-child {
 	background-image:none;
@@ -72,13 +72,13 @@ ul.navigation li.selected a:hover {
 	right: 40px;
 	width: 36px;
 	height: 30px;
-	background: url(../assets/sep.png) no-repeat 0 0;
+	background: url(/assets/sep.png) no-repeat 0 0;
 	padding-left: 12px;
 }
 .search label {
 	width: 18px;
 	height: 18px;
-	background: url(../assets/search.png) no-repeat 0 0;
+	background: url(/assets/search.png) no-repeat 0 0;
 	text-indent: -9999px;
 	display: block;
 	cursor: pointer;
@@ -102,7 +102,7 @@ ul.navigation li.selected a:hover {
 .search.open label {
 	width: 12px;
 	height: 10px;
-	background: url(../assets/close.png) no-repeat 0 0;
+	background: url(/assets/close.png) no-repeat 0 0;
 	text-indent: -9999px;
 	display: block;
 	cursor: pointer;
@@ -117,7 +117,7 @@ ul.navigation li.selected a:hover {
 .search.open input[type="submit"] {
 	width: 18px;
 	height: 18px;
-	background: url(../assets/search.png) no-repeat 0 0;
+	background: url(/assets/search.png) no-repeat 0 0;
 	text-indent: -9999px;
 	display: block;
 	cursor: pointer;
@@ -209,7 +209,7 @@ h2 i {
 	background-color: #5ab5dd;
 	float: left;
 	margin-right: 10px;
-	background-image: url(../assets/icons.jpg);
+	background-image: url(/assets/icons.jpg);
 	background-position: -5px -5px;
 }
 
@@ -259,7 +259,7 @@ p {
 	display: block;
 	width: 15px;
 	height: 15px;
-	background: url(../assets/clock.jpg) no-repeat;
+	background: url(/assets/clock.jpg) no-repeat;
 	float: left;
 	margin-right: 6px;
 	top: 3px;
