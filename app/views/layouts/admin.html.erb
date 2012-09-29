@@ -7,14 +7,19 @@
   <link href='http://fonts.googleapis.com/css?family=Questrial|Istok+Web&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
 
-  <%= javascript_include_tag "tiny_mce/tiny_mce.js" %>
+  <%= javascript_include_tag "/assets/tiny_mce/tiny_mce.js" %>
   <script type="text/javascript">
-  tinyMCE.init({
-    mode : "textareas",
-    editor_selector : "mceEditor",
-    plugins: "media",
-    media_strict: false 
-  });
+    <% if false # RAILS_HOST == "starorzecza.pl" || RAILS_HOST == "wisliska.pl" %>
+      document.domain = "<%= RAILS_HOST %>";
+    <% end %>
+    tinyMCE.init({
+            mode : "textareas",
+            editor_selector : "mceEditor",
+            plugins: "media",
+            media_strict: false,
+            valid_elements : '*[*]',
+            valid_children : "+body[style]"
+    });
   </script>
 
 </head>
