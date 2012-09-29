@@ -1,6 +1,8 @@
 MprojDev1::Application.routes.draw do
 
 
+  match "szukaj" => "home#search", :as => :search
+
   match "wiadomosci" => "front_infos#index", :as => :front_infos
   match "wiadomosc/:id" => "front_infos#show", :as => :front_info
   

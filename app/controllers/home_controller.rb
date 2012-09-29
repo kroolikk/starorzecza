@@ -1,18 +1,22 @@
 # -*- encoding: utf-8 -*-
 class HomeController < ApplicationController
+  include ActionView::Helpers::TextHelper
   before_filter :init_right_panel
 
   def index
     @infos = Info.order("created_at DESC").limit(3)
   end
 
+
   def contact
     @page = Page.find_by_label('kontakt')
   end
 
+
   def about
     @page = Page.find_by_label('o-projekcie')
   end
+
 
   def subscribe
     if params[:email].present?
@@ -26,5 +30,25 @@ class HomeController < ApplicationController
     else
       redirect_to root_url, alert: "Aby zapisać się do newslettera musisz podac e-mail."
     end
+  end
+
+
+  def search
+    if params[:key].present?
+      params[:key] = truncate(params[:key].to_s, :length => 50)
+      
+      keys = params[:key].gsub(/[^0-9a-ząćęłńśóżź -]/i, '').split(/[\s\-]/).select{|k| k.size > 2}
+
+      Rails.logger.info "-------------------------------------------------"
+      Rails.logger.info keys
+
+      @result_infos = []
+
+      keys.each do |key|
+        prep_key = '%'+key+'%'
+        @result_infos += Info.where("title LIKE ? OR content LIKE ?", prep_key, prep_key).to_a 
+      end
+
+    end    
   end
 end

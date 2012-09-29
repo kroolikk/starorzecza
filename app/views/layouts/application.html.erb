@@ -34,13 +34,13 @@
         </li>
       </ul>
       <div class="search">
-        <form>
+        <%= form_tag search_url do %>
           <label>
             Search
           </label>
-          <input type="text">
-          <input type="submit">
-        </form>
+          <%= text_field_tag :key %>
+          <%= submit_tag %>
+        <% end %>
       </div>
     </div>
 
