@@ -6,6 +6,6 @@ class Page < ActiveRecord::Base
   validates :title, :presence => { :message => '^Tytuł musi być podany.' }
 
   extend FriendlyId
-  friendly_id :title, use: :slugged
+  friendly_id :label, use: :slugged
 
 end

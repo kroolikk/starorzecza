@@ -4,22 +4,96 @@
 </h1>
 
 
-<h2>Wiadomości:</h2>
-<%= @result_infos.each do |info| %>
-  <div class="single-news">
-    <h3>
-      <%= link_to info.title, front_info_url(info) %>
-    </h3>
-    <div>
-      <%= raw info.content %>
-    </div>
+<% if @result_infos.present? %>
+  <br>
+  <br>
+  <h2>Wiadomości:</h2>
+  <% @result_infos.each do |info| %>
+    <div class="single-news">
+      <h3>
+        <%= link_to info.title, front_info_url(info) %>
+      </h3>
+      <div>
+        <%= raw info.content %>
+      </div>
 
-    <div class="data">
-      <span class="time">
-        <i></i>
-        <%= info.created_at.strftime("%d-%m-%Y %H:%M:%S") %>
-      </span>
-      <%= link_to "Czytaj więcej...", front_info_url(info) %>
+      <div class="data">
+        <span class="time">
+          <i></i>
+          <%= info.created_at.strftime("%d-%m-%Y %H:%M:%S") %>
+        </span>
+        <%= link_to "Czytaj więcej...", front_info_url(info) %>
+      </div>
     </div>
-  </div>
+  <% end %>
+<% end %>
+
+<% if @result_events.present? %>
+  <br>
+  <br>
+  <h2>Wydarzenia:</h2>
+  <% @result_events.each do |event| %>
+    <div class="single-news">
+      <h3>
+        <%= link_to event.title, front_event_url(event) %>
+      </h3>
+      <div>
+        <%= raw event.content %>
+      </div>
+
+      <div class="data">
+        <span class="time">
+          <i></i>
+          <%= event.created_at.strftime("%d-%m-%Y %H:%M:%S") %>
+        </span>
+        <%= link_to "Czytaj więcej...", front_event_url(event) %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+<% if @result_galleries.present? %>
+  <br>
+  <br>
+  <h2>Galerie:</h2>
+  <% @result_galleries.each_with_index do |gallery, index| %>
+    <h2>
+      <%= gallery.name %>
+    </h2>
+
+    <div class="gallery">
+      <p>
+        <% gallery.photos.each do |photo| %>
+          <%= link_to( image_tag(photo.photo.small.url, :alt => photo.title, :title => photo.title), photo.photo.url, :class => 'fancybox', 'data-fancybox-group' => "gallery_#{index}", :title => "Autor zdjęcia: #{photo.description}" ) %>
+        <% end %>
+      </p>
+    </div>
+  <% end %>
+<% end %>
+
+
+<% if @result_videos.present? %>
+  <br>
+  <br>
+  <h2>Video:</h2>
+  <% @result_videos.each do |video| %>
+    <h2>
+      <%= video.title %>
+    </h2>
+    <p>
+      <%= raw video.fileurl %>
+    </p>
+  <% end %>
+<% end %>
+
+
+<% if @result_pages.present? %>
+  <br>
+  <br>
+  <h2>Strony:</h2>
+  <% @result_pages.each do |page| %>
+    <h2>
+      <%= link_to page.title, front_page_url(page) %>
+    </h2>  
+  <% end %>
 <% end %>

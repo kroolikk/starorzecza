@@ -1,5 +1,5 @@
 class FrontPagesController < ApplicationController
   def show
-    @page = Page.find_by_label(params[:label])
+    @page = Page.find(params[:id])
   end
 end

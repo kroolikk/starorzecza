@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
 
   def prepare_variables
-    @pages = Page.all
+    #@pages = Page.all
   end
 
   def init_right_panel

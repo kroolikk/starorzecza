@@ -39,16 +39,32 @@ class HomeController < ApplicationController
       
       keys = params[:key].gsub(/[^0-9a-ząćęłńśóżź -]/i, '').split(/[\s\-]/).select{|k| k.size > 2}
 
-      Rails.logger.info "-------------------------------------------------"
-      Rails.logger.info keys
-
       @result_infos = []
+      @result_events = []
+      @result_galleries = []
+      @result_videos = []
+      @result_pages = []
 
       keys.each do |key|
         prep_key = '%'+key+'%'
         @result_infos += Info.where("title LIKE ? OR content LIKE ?", prep_key, prep_key).to_a 
       end
-
+      keys.each do |key|
+        prep_key = '%'+key+'%'
+        @result_events += Event.where("title LIKE ? OR content LIKE ?", prep_key, prep_key).to_a 
+      end
+      keys.each do |key|
+        prep_key = '%'+key+'%'
+        @result_galleries += Gallery.where("name LIKE ?", prep_key).to_a 
+      end
+      keys.each do |key|
+        prep_key = '%'+key+'%'
+        @result_videos += Vid.where("title LIKE ? OR description LIKE ?", prep_key, prep_key).to_a 
+      end
+      keys.each do |key|
+        prep_key = '%'+key+'%'
+        @result_pages += Page.where("title LIKE ? OR content LIKE ?", prep_key, prep_key).to_a 
+      end
     end    
   end
 end

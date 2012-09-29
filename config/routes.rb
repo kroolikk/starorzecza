@@ -18,7 +18,10 @@ MprojDev1::Application.routes.draw do
   match "galeria/:id" => "front_galleries#show", :as => :front_gallery
 
   match "kontakt" => "home#contact", :as => :contact
-  match "strona/:label" => "front_pages#show", :as => :front_page
+
+  match "strony" => "front_pages#index", :as => :front_pages
+  match "strona/:id" => "front_pages#show", :as => :front_page
+
   match "zapisz-do-neewslettera" => "home#subscribe", :as => :subscribe
 
   resources :infos
