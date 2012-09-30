@@ -23,6 +23,7 @@ MprojDev1::Application.routes.draw do
   match "strona/:id" => "front_pages#show", :as => :front_page
 
   match "zapisz-do-neewslettera" => "home#subscribe", :as => :subscribe
+  match "wyslij-wiadomosc" => "home#send_message", :as => :send_mesage
 
   resources :infos
   resources :events

@@ -44,17 +44,18 @@
       </div>
     </div>
 
-    
-    <ul class="roundabout">
-      <% Photo.limit(3).each do |p| %>
-      <li>
-        <%= image_tag p.photo.url, :alt => p.description %>
-        <%= link_to(p.photo.url, :class => "fancybox") do %>            
-        <em><%= p.description %></em>
-        <% end %>               
-      </li>      
-      <% end %>
-    </ul>
+    <% if params[:controller] == 'home' && params[:action] == 'index' %>    
+      <ul class="roundabout">
+        <% Photo.limit(3).each do |p| %>
+        <li>
+          <%= image_tag p.photo.url, :alt => p.description %>
+          <%= link_to(p.photo.url, :class => "fancybox") do %>            
+          <em><%= p.description %></em>
+          <% end %>               
+        </li>      
+        <% end %>
+      </ul>
+    <% end %>
 
 
     <div class="content">
@@ -103,10 +104,10 @@
               </div>
               <div id="mce-responses" class="clear">
                 <% if flash[:alert] %>
-                <div class="response" id="mce-error-response"><%= flash[:alert] %></div>
+                  <div class="response" id="mce-error-response"><%= flash[:alert] %></div>
                 <% end %>
                 <% if flash[:notice] %>
-                <div class="response" id="mce-success-response"><%= flash[:notice] %></div>
+                  <div class="response" id="mce-success-response"><%= flash[:notice] %></div>
                 <% end %>
               </div>
 

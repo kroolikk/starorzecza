@@ -1,3 +1,11 @@
+<% if flash[:notice] %>
+  <div class="response" id="mce-success-response"><%= flash[:notice] %></div>
+<% end %>
+<% if flash[:alert] %>
+  <div class="response" id="mce-error-response"><%= flash[:alert] %></div>
+<% end %>
+
+
 <% if @page.present? %>
   <h1 class="news">
     <i></i>
@@ -7,4 +15,21 @@
   <div class="single-news">
     <%= raw @page.content %>
   </div>
+
+  <p>
+    Możesz również wykorzystać poniższy formularz.
+  </p>
 <% end %>
+
+
+<div class="contact_form">
+  <%= form_tag send_mesage_url do %>
+    <label for="name">Twoje imię</label>
+    <%= text_field_tag :name, '', :placeholder => "Imię" %>      
+    <label for="email">Twój E-mail</label>
+    <%= text_field_tag :email, '',:placeholder => "E-mail" %>      
+    <label for="content">Wiadomość</label>
+    <%= text_area_tag :content %>      
+    <%= submit_tag "Wyślij" %>
+  <% end %>
+</div>

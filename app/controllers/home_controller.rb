@@ -67,4 +67,14 @@ class HomeController < ApplicationController
       end
     end    
   end
+
+
+  def send_message
+    if params[:name].present? && params[:content].present? && params[:email].present? && params[:email] =~ /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
+      ContactMailer.contact_email(params[:name], params[:email], params[:content]).deliver    
+      redirect_to contact_url, notice: "Wiadomość wysłana"
+    else
+      redirect_to contact_url, alert: "Wypełnij prawidłowo pola formularza"
+    end
+  end
 end
