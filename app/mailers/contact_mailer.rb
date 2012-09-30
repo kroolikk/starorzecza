@@ -6,6 +6,6 @@ class ContactMailer < ActionMailer::Base
     @name = name
     @email = email
     @content  = content
-    mail(:to => 'kroolikk@gmail.com', :subject => "Wiadomość z formularza kontaktowego")
+    mail(:to => 'starorzecza@gmail.com', :subject => "Wiadomość z formularza kontaktowego")
   end
 end
