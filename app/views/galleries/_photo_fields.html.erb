@@ -2,7 +2,7 @@
   <%= f.label :photo, "Plik:" %> <%= f.file_field :photo %><br/>
   <%= f.label :title, "Tytuł:" %> <%= f.text_field :title %><br/>
   <%= f.label :description, "Opis:" %> <%= f.text_field :description %><br/>
-  <span>Slider SG?</span> <%= f.check_box :sg %><br/>
+  <span>Slider SG?</span> <%#= f.check_box :sg %><br/>
   <% if f.object.photo.present? %>
     <br /><%= (image_tag f.object.photo.thumb.url) %><br />
   <% end %>
