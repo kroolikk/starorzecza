@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
 
   def prepare_variables
-    #@pages = Page.all
+    @nav_pages = Page.where("label != 'kontakt' AND label != 'o-projekcie'")
   end
 
   def init_right_panel

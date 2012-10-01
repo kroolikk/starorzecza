@@ -20,6 +20,12 @@
       <%= link_to( (image_tag "logo.png", :alt => "logo"), root_url ) %>
 
       <ul class="navigation">
+        <% @nav_pages.each do |page| %>
+          <li class="<%= set_selected_class('front_pages', 'show', page.slug) %>">
+            <%= link_to page.title, front_page_url(page) %>
+          </li>
+        <% end %>
+
         <li class="<%= set_selected_class('home', 'about') %>">
           <%= link_to "O projekcie", front_about_url %>
         </li>        
@@ -46,7 +52,7 @@
 
     <% if params[:controller] == 'home' && params[:action] == 'index' %>    
       <ul class="roundabout">
-        <% Photo.limit(3).each do |p| %>
+        <% Photo.where(:sg => true).limit(3).each do |p| %>
         <li>
           <%= image_tag p.photo.url, :alt => p.description %>
           <%= link_to(p.photo.url, :class => "fancybox") do %>            
@@ -181,7 +187,7 @@
             <% @r_galleries[0..0].each do |gallery| %>
               Gleria: <%= gallery.name %><br/>
               <% gallery.photos.each do |photo| %>
-                <%= link_to( image_tag(photo.photo.thumb.url, :alt => photo.title, :title => photo.title), photo.photo.url, :class => "fancybox", :title => "Autor zdjęcia: #{photo.description}"  ) %>
+                <%= link_to( image_tag(photo.photo.small.url, :alt => photo.title, :title => photo.title), photo.photo.url, :class => "fancybox", :title => "Autor zdjęcia: #{photo.description}"  ) %>
               <% end %>
             <% end %>
           <% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120926174751) do
+ActiveRecord::Schema.define(:version => 20121001181233) do
 
   create_table "events", :force => true do |t|
     t.string   "title"
@@ -67,10 +67,11 @@ ActiveRecord::Schema.define(:version => 20120926174751) do
   create_table "photos", :force => true do |t|
     t.integer  "gallery_id"
     t.string   "photo"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.string   "title"
     t.text     "description"
+    t.boolean  "sg",          :default => false
   end
 
   create_table "vids", :force => true do |t|
