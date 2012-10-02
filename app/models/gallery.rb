@@ -7,5 +7,7 @@ class Gallery < ActiveRecord::Base
 
   extend FriendlyId
   friendly_id :name, use: :slugged
+
+  scope :active, :conditions => ["galleries.hidden = false"]
   
 end

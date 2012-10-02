@@ -11,7 +11,10 @@
 
   <title>
     Chrońmy Wiśliska
-  </title> 
+  </title>
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta name="Author" content="">
 </head>
 
 <body> 
@@ -131,17 +134,17 @@
 
 
         <!-- Mapa -->
-
         <h2 class="map">
           <i></i>
           Mapa starorzeczy
         </h2>
         <div class="map">
           <p>
-            <%= link_to image_tag('/assets/map.jpg'), '#', :alt => "Mapa starorzeczy" %>            
+            <a href="http://www.vistulaoxbows.zbagien.pl/" target="_blank">
+              <img src="/assets/mapa.jpg" alt="Mapa starorzeczy">
+            </a>
           </p>
         </div>
-
         <!-- end Mapa -->
 
 
@@ -183,13 +186,10 @@
           Galeria
         </h2>
         <div class="gallery">
-          <% if @r_galleries.present? %>
-            <% @r_galleries[0..0].each do |gallery| %>
-              Gleria: <%= gallery.name %><br/>
-              <% gallery.photos.each do |photo| %>
-                <%= link_to( image_tag(photo.photo.small.url, :alt => photo.title, :title => photo.title), photo.photo.url, :class => "fancybox", :title => "Autor zdjęcia: #{photo.description}"  ) %>
-              <% end %>
-            <% end %>
+          <% if @r_photos.present? %>            
+            <% @r_photos.each do |photo| %>
+              <%= link_to( image_tag(photo.photo.rbar.url, :alt => photo.title, :title => photo.title), photo.photo.url, :class => "fancybox", :title => "Autor zdjęcia: #{photo.description}"  ) %>
+            <% end %>            
           <% end %>
         </div>
         <div class="bottom-more">
@@ -200,6 +200,8 @@
 
       </div>
     </div>
+    
+
     <div class="footer">
       <h3>
         Nasi partnerzy
@@ -211,6 +213,10 @@
         Copyright &copy; 2012
       </p>
     </div>
+</div>
+
+
+
   </div>
 
   <script type="text/javascript"> 
@@ -246,35 +252,3 @@
   </script>
 </body>
 </html>
-
-
-
-<% if false %>
-<!DOCTYPE html>
-<head>
-  <meta charset="UTF-8" />
-  <%= csrf_meta_tags %>
-  
-  <%= stylesheet_link_tag "style.css" %>
-  <%= javascript_include_tag "jquery-1.7.2.min.js" %>
-</head>
-
-<body>
-  
-  
-  <p>Layout</p>
-  Nawigacja<br>
-  <%= link_to "SG", root_url %>
-  <% @pages.each do |p| %>
-  <%= link_to p.title, front_page_url(p.label) %>
-  <% end %>
-  <%= link_to "Video", front_videos_url %>
-  <%= link_to "Galeria", front_galleries_url %>
-  <%= link_to "Kontakt", contact_url %>
-  <br><br><br>
-  <div>
-    <%= yield %>
-  </div>
-</body>
-</html>
-<% end %>

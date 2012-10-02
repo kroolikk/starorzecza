@@ -13,10 +13,10 @@
 
 <% @galleries.each do |gallery| %>
   <tr>
-    <td><%= gallery.name %></td>
+    <td><%= gallery.name %><%= " (galeria ukryta)" if gallery.hidden %></td>
     <td>
       <% gallery.photos.each do |photo| %>
-	<%= image_tag photo.photo.thumb.url %>
+        <%= link_to image_tag(photo.photo.thumb.url), photo.photo.url %>
       <% end %>
     </td>
     <td><%= gallery.created_at.strftime("%d-%m-%Y %H:%M:%S") %></td>

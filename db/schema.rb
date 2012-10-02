@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121001181233) do
+ActiveRecord::Schema.define(:version => 20121002175628) do
 
   create_table "events", :force => true do |t|
     t.string   "title"
@@ -26,10 +26,11 @@ ActiveRecord::Schema.define(:version => 20121001181233) do
 
   create_table "galleries", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.string   "label"
     t.string   "slug"
+    t.boolean  "hidden",     :default => false
   end
 
   add_index "galleries", ["slug"], :name => "index_galleries_on_slug"
