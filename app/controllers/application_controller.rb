@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   def init_right_panel
     @r_events = Event.order("created_at DESC").limit(4)
-    @r_photos = Photo.active.order("RAND()").limit(6)
+    @r_photos = Photo.active.order("RANDOM()").limit(6)
   end
   
 end
