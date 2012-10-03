@@ -1,0 +1,10 @@
+<% if @page.present? %>
+  <h1 class="news">
+    <i></i>
+    <%= @page.title %>
+  </h1>
+
+  <div class="single-news">
+    <%= raw @page.content %>
+  </div>
+<% end %>

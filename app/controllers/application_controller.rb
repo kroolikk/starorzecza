@@ -5,12 +5,11 @@ class ApplicationController < ActionController::Base
 
 
   def prepare_variables
-    @nav_pages = Page.where("label != 'kontakt' AND label != 'o-projekcie'")    
+    @nav_pages = Page.where("label != 'kontakt' AND label != 'o-projekcie' AND label != 'english'")    
   end
 
   def init_right_panel
-    @r_events = Event.order("created_at DESC").limit(4)
-    
+    @r_events = Event.order("created_at DESC").limit(4)    
     @r_photos = random_records(Photo.active, 'photos', 6)
     # @r_photos = Photo.active.order("RANDOM()").limit(6)
   end

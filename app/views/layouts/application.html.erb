@@ -9,14 +9,7 @@
   <%= stylesheet_link_tag "style.css", "jquery.fancybox.css" %>
   <%= javascript_include_tag "jquery-1.7.2.min.js", "jquery.backstretch.min.js", "jquery.fancybox.js", "jquery.roundabout.min.js" %>
 
-  <title>
-    Chrońmy Wiśliska
-  </title>
-
-  <meta name="Keywords" content="">
-  <meta name="Description" content="">
-  <meta name="Author" content="">
-  
+  <%= render 'home/metatags' %>
 </head>
 
 <body> 
@@ -42,6 +35,9 @@
         </li>
         <li class="<%= set_selected_class('home', 'contact') %>">
           <%= link_to "Kontakt", contact_url %>
+        </li>
+        <li class="<%= set_selected_class('home', 'english') %>">
+          <%= link_to image_tag('eng.jpg', :alt => "English", :width => "25", :height => "16", :class => "english"), english_url %>
         </li>
       </ul>
       <div class="search">
@@ -204,17 +200,66 @@
     </div>
     
 
-    <div class="footer">
-      <h3>
-        Nasi partnerzy
-      </h3>
-    </div>
 
-    <div class="copyright">
-      <p>
-        Copyright &copy; 2012
-      </p>
+
+<div class="footer">
+    
+    <div class="swiss p_left">
+      <a href="http://www.programszwajcarski.gov.pl/" target="_blank">
+        <img src="/assets/partner_swiss.jpg" alt="Swiss Contribution">
+      </a>
     </div>
+    <div class="tekst p_center">
+      <a href="http://www.swiss-contribution.admin.ch/poland" target="_blank">
+        <img src="/assets/partner_tekst.jpg" alt="Projekt współfinansowany przez Szwajcarię w ramach szwajcarskiego 
+programu współpracy z nowymi krajami członkowskimi Unii Europejskiej">
+      </a>
+    </div>
+  </div>
+
+
+  <div class="footer">    
+    <div class="partner">
+      <h3>
+        Partner projektu
+      </h3> 
+      <a href="http://www.iop.krakow.pl/" target="_blank">
+        <img src="/assets/partner_pan.jpg" alt="IOP">
+      </a>
+    </div>
+    <div class="partner">
+      <h3>
+        Instytucja realizująca
+      </h3> 
+      <a href="http://tnz.most.org.pl/pl/" target="_blank">
+        <img src="/assets/partner_tnz.jpg" alt="Towarzystwo na rzecz Ziemi">
+      </a>
+    </div>
+    <div class="partner wfo">
+      <h3>
+        Sponsor działań edukacyjnych
+      </h3> 
+      <a href="http://www.wfos.krakow.pl/" target="_blank">
+        <img src="/assets/partner_wfo.jpg" alt="WFOSiGW">
+      </a>
+    </div>
+    <div class="partner medialny">
+      <h3>
+        Partner medialny
+      </h3> 
+      <a href="http://www.radiokrakow.pl/" target="_blank">
+        <img src="/assets/partner_radiokrakow.jpg" alt="Radio Kraków">
+      </a>
+    </div>
+  </div>
+
+
+
+  <div class="copyright">
+    <p>
+      Copyright &copy; 2012
+    </p>
+  </div>
 </div>
 
 

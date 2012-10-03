@@ -454,6 +454,7 @@ input[type=submit]:focus {
 	background-color: #fff;
 	padding: 40px;
 	margin-bottom: 30px;
+	overflow: hidden;
 }
 
 .copyright {
@@ -466,4 +467,74 @@ input[type=submit]:focus {
 }
 .copyright p {
 	text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.footer {
+	padding: 10px 20px;
+	color: #888;
+	font-size: 12px;
+}
+
+.p_left,
+.p_center,
+.p_right {
+	float: left;
+}
+
+.p_left {
+	width: 280px;
+}
+.p_left img {
+	top: 30px;
+}
+.p_center {
+	width: 480px;
+	height: 110px;
+}
+.p_center img {
+	position: relative;
+	left: -17px;
+	top:20px;
+}
+.p_right {
+	width: 160px;
+}
+
+.partner {
+	float: left;
+	width: 25%;
+	text-align: center;
+
+}
+.partner h3 {
+	padding-top:5px;
+	margin-bottom: 5px;
+}
+.partner a{
+	
+	clear: both;
+}
+.wfo img {
+	top: 7px;
+}
+.medialny img {
+	top: 6px;
+}
+
+.header img.english {
+	height: 16px;
+	width: 25px;
+	left: 4px;
+	bottom: 1px;
 }

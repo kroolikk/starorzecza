@@ -12,6 +12,9 @@ class HomeController < ApplicationController
     @page = Page.find_by_label('kontakt')
   end
 
+  def english
+    @page = Page.find_by_label('english')    
+  end
 
   def about
     @page = Page.find_by_label('o-projekcie')

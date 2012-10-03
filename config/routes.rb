@@ -19,6 +19,8 @@ MprojDev1::Application.routes.draw do
 
   match "kontakt" => "home#contact", :as => :contact
 
+  match "english" => "home#english", :as => :english
+
   match "strony" => "front_pages#index", :as => :front_pages
   match "strona/:id" => "front_pages#show", :as => :front_page
 
