@@ -16,8 +16,9 @@ class ApplicationController < ActionController::Base
   
 
   def random_records(s_model, s_table_name, s_limit)
-    rand_ids = s_model.all.collect{|m| m.id}.shuffle[0..s_limit-1]
-    rand_objects = s_model.where("#{s_table_name}.id IN ( #{rand_ids.join(',')} )")
+    rand_ids = s_model.all.collect{|m| m.id}.shuffle[0..s_limit-1].join(',')
+    rand_ids = 0 if rand_ids.blank?
+    rand_objects = s_model.where("#{s_table_name}.id IN ( #{rand_ids} )")
     return rand_objects
   end
 end
