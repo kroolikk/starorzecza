@@ -1,5 +1,9 @@
-<!DOCTYPE html> 
-<html>
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if IE 9]>    <html class="ie9 oldie"> <![endif]-->
+<!--[if gt IE 9]><!--> <html> <!--<![endif]-->
 <head> 
   <meta charset='utf-8'> 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -12,21 +16,26 @@
   <%= render 'home/metatags' %>
 </head>
 
-<body> 
+<body>
+  <div class="ie6-only">
+    <p>
+      Używasz przestarzałej przeglądarki, przez co strona może nie wyświetlać się poprawnie.
+      Wejdź na <a href="http://browsehappy.com/">Browse Happy</a> aby wybrać i zainstalować nowszą przeglądarkę. 
+    </p>
+  </div>
   <div class="container">
     <div class="header">
       <%= link_to( (image_tag "logo.png", :alt => "logo"), root_url ) %>
 
       <ul class="navigation">
+        <li class="<%= set_selected_class('home', 'about') %>">
+          <%= link_to "O projekcie", front_about_url %>
+        </li>
         <% @nav_pages.each do |page| %>
           <li class="<%= set_selected_class('front_pages', 'show', page.slug) %>">
             <%= link_to page.title, front_page_url(page) %>
           </li>
         <% end %>
-
-        <li class="<%= set_selected_class('home', 'about') %>">
-          <%= link_to "O projekcie", front_about_url %>
-        </li>        
         <li class="<%= set_selected_class('front_galleries') %>">
           <%= link_to "Galeria", front_galleries_url %>
         </li>
@@ -193,78 +202,66 @@
         <div class="bottom-more">
           <%= link_to "Więcej...", front_galleries_url %>
         </div>
-
         <!-- end Gallery -->
-
       </div>
     </div>
-    
 
-
-
-<div class="footer">
-    
-    <div class="swiss p_left">
-      <a href="http://www.programszwajcarski.gov.pl/" target="_blank">
-        <img src="/assets/partner_swiss.jpg" alt="Swiss Contribution">
-      </a>
+    <div class="footer">    
+      <div class="swiss p_left">
+        <a href="http://www.programszwajcarski.gov.pl/" target="_blank">
+          <img src="/assets/partner_swiss.jpg" alt="Swiss Contribution">
+        </a>
+      </div>
+      <div class="tekst p_center">
+        <a href="http://www.swiss-contribution.admin.ch/poland" target="_blank">
+          <img src="/assets/partner_tekst.jpg" alt="Projekt współfinansowany przez Szwajcarię w ramach szwajcarskiego 
+          programu współpracy z nowymi krajami członkowskimi Unii Europejskiej">
+        </a>
+      </div>
     </div>
-    <div class="tekst p_center">
-      <a href="http://www.swiss-contribution.admin.ch/poland" target="_blank">
-        <img src="/assets/partner_tekst.jpg" alt="Projekt współfinansowany przez Szwajcarię w ramach szwajcarskiego 
-programu współpracy z nowymi krajami członkowskimi Unii Europejskiej">
-      </a>
-    </div>
-  </div>
 
-
-  <div class="footer">    
-    <div class="partner">
-      <h3>
-        Partner projektu
-      </h3> 
-      <a href="http://www.iop.krakow.pl/" target="_blank">
-        <img src="/assets/partner_pan.jpg" alt="IOP">
-      </a>
+    <div class="footer">    
+      <div class="partner">
+        <h3>
+          Partner projektu
+        </h3> 
+        <a href="http://www.iop.krakow.pl/" target="_blank">
+          <img src="/assets/partner_pan.jpg" alt="IOP">
+        </a>
+      </div>
+      <div class="partner">
+        <h3>
+          Instytucja realizująca
+        </h3> 
+        <a href="http://tnz.most.org.pl/pl/" target="_blank">
+          <img src="/assets/partner_tnz.jpg" alt="Towarzystwo na rzecz Ziemi">
+        </a>
+      </div>
+      <div class="partner wfo">
+        <h3>
+          Sponsor działań edukacyjnych
+        </h3> 
+        <a href="http://www.wfos.krakow.pl/" target="_blank">
+          <img src="/assets/partner_wfo.jpg" alt="WFOSiGW">
+        </a>
+      </div>
+      <div class="partner medialny">
+        <h3>
+          Partner medialny
+        </h3> 
+        <a href="http://www.radiokrakow.pl/" target="_blank">
+          <img src="/assets/partner_radiokrakow.jpg" alt="Radio Kraków">
+        </a>
+      </div>
     </div>
-    <div class="partner">
-      <h3>
-        Instytucja realizująca
-      </h3> 
-      <a href="http://tnz.most.org.pl/pl/" target="_blank">
-        <img src="/assets/partner_tnz.jpg" alt="Towarzystwo na rzecz Ziemi">
-      </a>
-    </div>
-    <div class="partner wfo">
-      <h3>
-        Sponsor działań edukacyjnych
-      </h3> 
-      <a href="http://www.wfos.krakow.pl/" target="_blank">
-        <img src="/assets/partner_wfo.jpg" alt="WFOSiGW">
-      </a>
-    </div>
-    <div class="partner medialny">
-      <h3>
-        Partner medialny
-      </h3> 
-      <a href="http://www.radiokrakow.pl/" target="_blank">
-        <img src="/assets/partner_radiokrakow.jpg" alt="Radio Kraków">
-      </a>
-    </div>
-  </div>
 
-
-
-  <div class="copyright">
-    <p>
-      Copyright &copy; 2012
-    </p>
+    <div class="copyright">
+      <p>
+        Copyright &copy; 2012
+      </p>
+    </div>
   </div>
 </div>
-
-
-
-  </div>
 
   <script type="text/javascript"> 
     $.backstretch("<%= asset_path('bg.jpg') %>");

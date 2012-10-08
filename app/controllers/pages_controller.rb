@@ -3,7 +3,7 @@ class PagesController < AdminController
 
 
   def index
-    @pages = Page.all
+    @pages = Page.order("priority DESC").all
   end
 
 

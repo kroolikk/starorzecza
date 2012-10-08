@@ -14,6 +14,10 @@ body {
 }
 
 
+.content {
+	background: url(/assets/contentbg.png) repeat-y;
+}
+
 /* Header */
 	
 .header {
@@ -60,6 +64,10 @@ ul.navigation li.selected {
 }
 ul.navigation li.selected a {
 	background-color: #51b54e;
+	color: #fff;
+}
+ul.navigation li.selected a.english {
+	background-color: #fff;
 	color: #fff;
 }
 ul.navigation li.selected a:hover {
@@ -537,4 +545,24 @@ input[type=submit]:focus {
 	width: 25px;
 	left: 4px;
 	bottom: 1px;
+}
+
+p img {
+	z-index: 4;
+}
+
+.ie6-only {
+	display: none;
+}
+
+.ie6 .ie6-only {
+	display: block;
+	width: 960px;
+	background: #fff;
+	border: solid 3px #f00;
+	margin-top: 20px;
+	line-height: 20px;
+	padding: 20px;
+	margin: 0 auto;
+	top: 20px;
 }

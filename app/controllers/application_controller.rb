@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
 
   def prepare_variables
-    @nav_pages = Page.where("label != 'kontakt' AND label != 'o-projekcie' AND label != 'english'")    
+    @nav_pages = Page.where("label != 'kontakt' AND label != 'o-projekcie' AND label != 'english'").order("priority DESC")    
   end
 
   def init_right_panel

@@ -16,7 +16,13 @@
     <%= f.label :title, "Url" %>
     <%= "#{request.protocol}#{request.host_with_port}/" %><%= f.text_field :label %>
   </div>  
-  
+  <br/>
+  <div class="field">
+    <%= f.label :priority, "Priorytet (0-100 im wyższa wartość tym większy priorytet w menu)" %>
+    <%= f.text_field :priority %><br/>
+    Nie można pozycjonować "stałych podstron" takich jak "o-projekcie", "kontakt" i "english"
+  </div>
+  <br/>
   <div class="field">
     <%= f.label :title, "Tytuł" %>
     <%= f.text_field :title %>
