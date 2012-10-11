@@ -56,3 +56,5 @@ gem 'jquery-rails'
 # gem "heroku"
 
 gem "friendly_id", "~> 4.0.1"
+
+gem 'cloudinary'
