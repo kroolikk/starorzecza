@@ -10,7 +10,8 @@ if defined?(Bundler)
 end
 
 AVAILABLE_LANGUAGES = [:en]
-
+# SITE_DOMAIN = 'lvh.me'
+SITE_DOMAIN = 'wisliska.pl'
 
 module MprojDev1
   class Application < Rails::Application

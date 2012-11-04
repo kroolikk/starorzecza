@@ -5,7 +5,7 @@
 
 <% @galleries.each_with_index do |gallery, index| %>
   <h2>
-    <%= gallery.name %>
+    <%= link_to gallery.name, front_gallery_url(gallery) %>
   </h2>
 
   <div class="gallery">

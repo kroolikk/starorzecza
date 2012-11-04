@@ -1,7 +1,15 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
+  before_filter :check_domain
   before_filter :prepare_variables
+
+
+  def check_domain
+    if request.domain != SITE_DOMAIN || request.subdomains.present?
+      redirect_to "http://#{SITE_DOMAIN}:3000"
+    end
+  end
 
 
   def prepare_variables
@@ -11,7 +19,6 @@ class ApplicationController < ActionController::Base
   def init_right_panel
     @r_events = Event.order("created_at DESC").limit(4)    
     @r_photos = random_records(Photo.active, 'photos', 6)
-    # @r_photos = Photo.active.order("RANDOM()").limit(6)
   end
   
 
