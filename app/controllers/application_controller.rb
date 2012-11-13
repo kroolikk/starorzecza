@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
 
 
   def check_domain
-    if request.domain != SITE_DOMAIN || request.subdomains.present?
-      redirect_to "http://#{SITE_DOMAIN}:3000"
+    if request.domain != SITE_DOMAIN || request.subdomains.blank?
+      redirect_to "http://www.#{SITE_DOMAIN}"
     end
   end
 
