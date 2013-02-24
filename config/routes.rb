@@ -16,6 +16,8 @@ MprojDev1::Application.routes.draw do
 
   match "galerie" => "front_galleries#index", :as => :front_galleries
   match "galeria/:id" => "front_galleries#show", :as => :front_gallery
+  match "galeria-zwieksz-priorytet/:id" => "galleries#prior_up", :as => :pages_prior_up
+  match "galeria-zmniejsz-priorytet/:id" => "galleries#prior_down", :as => :pages_prior_down
 
   match "kontakt" => "home#contact", :as => :contact
 

@@ -2,7 +2,7 @@ class FrontGalleriesController < ApplicationController
   before_filter :init_right_panel
 
   def index
-    @galleries = Gallery.active.all
+    @galleries = Gallery.order("priority ASC").active.all
   end
 
   def show

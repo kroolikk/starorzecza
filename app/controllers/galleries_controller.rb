@@ -2,8 +2,25 @@
 class GalleriesController < AdminController
 
 
+  def prior_up
+    @gallery = Gallery.find(params[:id])
+    
+    @gallery.prior_red 
+
+    redirect_to galleries_url
+  end
+
+  def prior_down
+    @gallery = Gallery.find(params[:id])
+    
+    @gallery.prior_inc
+    
+    redirect_to galleries_url
+  end
+
+
   def index
-    @galleries = Gallery.all
+    @galleries = Gallery.order("priority ASC, id DESC").all
   end
 
 

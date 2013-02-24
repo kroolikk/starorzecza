@@ -65,9 +65,9 @@
       <ul class="roundabout">
         <% Photo.where(:sg => true).limit(3).each do |p| %>
         <li>
-          <%= image_tag p.photo.url, :alt => p.description %>
-          <%= link_to(p.photo.url, :class => "fancybox") do %>            
-          <em><%= p.description %></em>
+          <%= image_tag p.photo.url, :alt => p.description, :title => p.description %>
+          <%= link_to(p.photo.url, :class => "fancybox", :title => "Tytuł: #{p.title}<br> Autor zdjęcia: #{p.description}") do %>            
+          <em><%= p.title %></em>
           <% end %>               
         </li>      
         <% end %>
