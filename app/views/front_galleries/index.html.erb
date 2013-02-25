@@ -11,7 +11,8 @@
   <div class="gallery">
     <p>
       <% gallery.photos[0..2].each do |photo| %>
-        <%= link_to( image_tag(photo.photo.small.url, :alt => photo.title, :title => photo.title), photo.photo.url, :class => 'fancybox', 'data-fancybox-group' => "gallery_#{index}", :title => "Tytuł: #{photo.title}<br> Autor zdjęcia: #{photo.description}" ) %>
+        <%#= link_to( image_tag(photo.photo.small.url, :alt => photo.title, :title => photo.title), photo.photo.url, :class => 'fancybox', 'data-fancybox-group' => "gallery_#{index}", :title => "Tytuł: #{photo.title}<br> Autor zdjęcia: #{photo.description}" ) %>
+        <%= link_to( image_tag(photo.photo.small.url, :alt => photo.title, :title => photo.title), front_gallery_url(gallery) ) %>
       <% end %>
       <%= link_to "Zobacz więcej »", front_gallery_url(gallery), :style => "float:right;" %>
     </p>
